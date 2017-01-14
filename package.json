@@ -1,0 +1,23 @@
+{
+	"name": "meme-archive",
+	"version": "1.0.0",
+	"description": "A website running on Node.js to give you quick access to all your memes!",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kurogetsusai/meme-archive.git"
+	},
+	"author": "Sai Kurogetsu",
+	"license": "Unlicense",
+	"bugs": {
+		"url": "https://github.com/kurogetsusai/meme-archive/issues"
+	},
+	"homepage": "https://github.com/kurogetsusai/meme-archive#readme",
+	"dependencies": {
+		"express": "^4.14.0",
+		"express-handlebars": "^3.0.0"
+	}
+}

@@ -1,0 +1,29 @@
+{{#if backPath}}
+<div class="post">
+	<a href="{{backPath}}"><img src="/img/back-thumb.png" alt="back icon"></a>
+	<span class="title">back</span>
+	<div class="panel">
+		<span>{{backItemCount}}</span>
+		<span><a href="{{backPath}}"><img src="/img/link-symbol.png" alt="link"></a></span>
+	</div>
+</div>
+{{/if}}
+{{#each memes}}
+<div class="post">
+	{{#if isDirectory}}
+	<a href="/archive{{../pathPrefix}}/{{filename}}"><img src="/img/folder-thumb.png" alt="folder icon"></a>
+	{{^}}
+	<a href="/meme{{../pathPrefix}}/{{filename}}"><img src="/meme{{../pathPrefix}}/{{filename}}" alt="meme preview"></a>
+	{{/if}}
+	<span class="title">{{filename}}</span>
+	<div class="panel">
+		{{#if isDirectory}}
+		<span>{{itemCount}}</span>
+		<span><a href="/archive{{../pathPrefix}}/{{filename}}"><img src="/img/link-symbol.png" alt="link"></a></span>
+		{{^}}
+		<span>{{size}}</span>
+		<span><a href="/meme{{../pathPrefix}}/{{filename}}"><img src="/img/link-symbol.png" alt="link"></a></span>
+		{{/if}}
+	</div>
+</div>
+{{/each}}

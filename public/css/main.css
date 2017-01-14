@@ -1,0 +1,111 @@
+@font-face {
+	font-family: "Alegreya Sans Medium";
+	src: url("/font/alegreya-sans/AlegreyaSans-Medium.otf");
+}
+
+@font-face {
+	font-family: "ABeeZee Regular";
+	src: url("/font/abeezee/ABeeZee-Regular.otf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin-bottom: 120px;
+	font-family: "ABeeZee Regular", sans-serif;
+	font-size: 1em;
+	background-color: #eee;
+}
+
+header {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+header img {
+	display: inline;
+	padding: 0 10px;
+	vertical-align: bottom;
+}
+
+header h1 {
+	padding: 0;
+	display: inline;
+	padding-right: 84px;
+}
+
+#page {
+	margin: 0 auto;
+	padding: 40px;
+	width: 80%;
+	background-color: #fff;
+	border-radius: 0 0 2px 2px;
+	box-shadow: 0 1px 2px 2px rgba(0, 0, 0, .1);
+}
+
+h1 {
+	padding: .4em 0 .8em;
+	font-family: "Alegreya Sans Medium", sans-serif;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+.post {
+	width: 33.33%;
+	padding: 20px 10px;
+}
+
+.post img {
+	width: 100%;
+	border-radius: 3px;
+}
+
+.post span.title {
+	display: block;
+	padding: .5em 0 .5em;
+	font-size: 1.1em;
+	font-weight: bold;
+	word-break: break-all;
+}
+
+.post .panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #333;
+}
+
+.post .panel a {
+	color: #333;
+}
+
+footer {
+	z-index: -1;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+	font-size: .8em;
+	text-align: center;
+	color: #888;
+}
+
+footer a {
+	color: #888;
+}
+
+footer a:hover {
+	color: #444;
+}
