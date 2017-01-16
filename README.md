@@ -15,7 +15,7 @@ This project uses:
 - Frog icon made by [Freepik](http://www.freepik.com) from
   [www.flaticon.com](http://www.flaticon.com), licensed under
   [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
-- Folder and back icons made by
+- Folder, file and back icons made by
   [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) from
   [www.flaticon.com](http://www.flaticon.com), licensed under
   [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).

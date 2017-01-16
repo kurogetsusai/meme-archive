@@ -9,7 +9,29 @@ const app = express();
 const handlebars = exphbs.create({
 	defaultLayout: 'main',
 	helpers: {
-		raw: param => param.fn()
+		raw: param => param.fn(),
+		matches: function (value, test, options) {
+			return value == test ? options.fn(this) : options.inverse(this);
+		},
+		nmatches: function (value, test, options) {
+			return value != test ? options.fn(this) : options.inverse(this);
+		},
+		equals: function (value, test, options) {
+			return value === test ? options.fn(this) : options.inverse(this);
+		},
+		nequals: function (value, test, options) {
+			return value !== test ? options.fn(this) : options.inverse(this);
+		},
+		switch: function (value, options) {
+			this.switchValue = value;
+			let html = options.fn(this); // process the body of the switch block
+			delete this.switchValue;
+			return html;
+		},
+		case: function (value, options) {
+			if (value === this.switchValue)
+				return options.fn(this);
+		}
 	}
 });
 
@@ -53,6 +75,18 @@ app.get('/archive*', function (request, response) {
 			});
 		});
 	};
+	let getFileType = function (fileName) {
+		let extImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'];
+		let extVideo = ['.webm', '.mp4', '.gifv'];
+		let fn = fileName.toLowerCase();
+
+		if (extImage.some(s => fn.endsWith(s)))
+			return 'image';
+		else if (extVideo.some(s => fn.endsWith(s)))
+			return 'video';
+		else
+			return 'binary';
+	};
 
 	// ls current dir to build the meme array and render it
 	fs.readdir(currPath, (err, files) => {
@@ -79,6 +113,7 @@ app.get('/archive*', function (request, response) {
 					memes.push({
 						filename: file,
 						isDirectory: false,
+						fileType: getFileType(file),
 						size: tools.prettySize(stats.size)
 					});
 

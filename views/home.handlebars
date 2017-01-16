@@ -12,15 +12,25 @@
 <div class="post">
 	{{#if isDirectory}}
 	<a href="/archive{{../pathPrefix}}/{{filename}}"><img src="/img/folder-thumb.png" alt="folder icon"></a>
-	{{^}}
+	{{else}}
+		{{#switch fileType}}
+			{{#case 'image'}}
 	<a href="/meme{{../pathPrefix}}/{{filename}}"><img src="/meme{{../pathPrefix}}/{{filename}}" alt="meme preview"></a>
+			{{/case}}
+			{{#case 'video'}}
+	<video src="/meme{{../pathPrefix}}/{{filename}}" controls>meme preview</video>
+			{{/case}}
+			{{#case 'binary'}}
+	<a href="/meme{{../pathPrefix}}/{{filename}}"><img src="/img/file-thumb.png" alt="file icon"></a>
+			{{/case}}
+		{{/switch}}
 	{{/if}}
 	<span class="title">{{filename}}</span>
 	<div class="panel">
 		{{#if isDirectory}}
 		<span>{{itemCount}}</span>
 		<span><a href="/archive{{../pathPrefix}}/{{filename}}"><img src="/img/link-symbol.png" alt="link"></a></span>
-		{{^}}
+		{{else}}
 		<span>{{size}}</span>
 		<span><a href="/meme{{../pathPrefix}}/{{filename}}"><img src="/img/link-symbol.png" alt="link"></a></span>
 		{{/if}}
