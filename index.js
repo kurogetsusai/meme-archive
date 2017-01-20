@@ -45,7 +45,7 @@ app.get('/', function (request, response) {
 });
 
 app.get('/archive*', function (request, response) {
-	let params = request.url.split('/').filter(value => value !== '').splice(1);
+	let params = decodeURI(request.url).split('/').filter(value => value !== '').splice(1);
 	let currPath = memeDir + '/' + params.join('/');
 	let render = function (memes) {
 		// sort the memes
@@ -69,7 +69,7 @@ app.get('/archive*', function (request, response) {
 		fs.readdir(backRealPath, (err, filesInside) => {
 			response.render('home', {
 				backPath: backPath,
-				backItemCount: filesInside.length + ' items',
+				backItemCount: suffixNumber(filesInside.length, 'item'),
 				pathPrefix: pathPrefix,
 				memes: memes
 			});
@@ -87,6 +87,7 @@ app.get('/archive*', function (request, response) {
 		else
 			return 'binary';
 	};
+	let suffixNumber = (number, suffix) => number + ' ' + suffix + (number !== 1 ? 's' : '');
 
 	// ls current dir to build the meme array and render it
 	fs.readdir(currPath, (err, files) => {
@@ -103,7 +104,7 @@ app.get('/archive*', function (request, response) {
 						memes.push({
 							filename: file,
 							isDirectory: true,
-							itemCount: filesInside.length + ' items'
+							itemCount: suffixNumber(filesInside.length, 'item')
 						});
 
 						if (memes.length === files.length)

@@ -18,7 +18,7 @@ module.exports = {
 			bytes /= modes[mode].multiplier;
 
 		let result = bytes.toFixed(1);
-		if (result[result.length - 1] === '0')
+		if (result.endsWith('0'))
 			result = bytes.toFixed(0);
 
 		return result + ' ' + modes[mode].prefixes[i] + 'B';

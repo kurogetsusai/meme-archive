@@ -22,6 +22,12 @@ body {
 	background-color: #eee;
 }
 
+a:active,
+a:focus {
+	outline: 0;
+	box-shadow: 0 0 0 1px #aaa;
+}
+
 header {
 	text-align: center;
 	padding-bottom: 20px;
@@ -66,8 +72,13 @@ main {
 	padding: 20px 10px;
 }
 
+.post a {
+	display: block;
+}
+
 .post img,
 .post video {
+	display: block;
 	width: 100%;
 	border-radius: 3px;
 }
