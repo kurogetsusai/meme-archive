@@ -1,6 +1,6 @@
 module.exports = {
 	prettySize: function (bytes, mode = 'metric') {
-		let modes = {
+		const modes = {
 			metric: {
 				multiplier: 1000,
 				prefixes: ['', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y']
@@ -12,7 +12,7 @@ module.exports = {
 		};
 
 		if (typeof modes[mode] === 'undefined')
-			return 'unsupported mode'
+			return 'unsupported mode';
 
 		for (var i = 0; bytes > modes[mode].multiplier; ++i)
 			bytes /= modes[mode].multiplier;

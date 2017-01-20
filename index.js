@@ -45,8 +45,8 @@ app.get('/', function (request, response) {
 });
 
 app.get('/archive*', function (request, response) {
-	let params = decodeURI(request.url).split('/').filter(value => value !== '').splice(1);
-	let currPath = memeDir + '/' + params.join('/');
+	const params = decodeURI(request.url).split('/').filter(value => value !== '').splice(1);
+	const currPath = memeDir + '/' + params.join('/');
 	let render = function (memes) {
 		// sort the memes
 		let sortFunc = (a, b) => a.filename > b.filename;
@@ -76,8 +76,8 @@ app.get('/archive*', function (request, response) {
 		});
 	};
 	let getFileType = function (fileName) {
-		let extImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'];
-		let extVideo = ['.webm', '.mp4', '.gifv'];
+		const extImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'];
+		const extVideo = ['.webm', '.mp4', '.gifv'];
 		let fn = fileName.toLowerCase();
 
 		if (extImage.some(s => fn.endsWith(s)))
